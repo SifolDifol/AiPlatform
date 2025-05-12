@@ -1,0 +1,18 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+</head>
+<body>
+<header th:insert="/index"></header>
+<div>
+    <form method="post">
+        <table border="1" cellpadding="5" cellspacing="1">
+            <tr><td><span><input type="Integer" name="id" placeholder="Введите id редактируемой задачи"></span></td></tr>
+            <tr><td><span><input type="text" name="name" placeholder="Введите новое имя задачи"></span></td></tr>
+            <tr><td><span><input type="text" name="description" placeholder="Введите новое описание задачи"></span></td></tr>
+            <tr><td><span><button type="submit" >Отредактировать</button></span></td>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Task</title>
+</head>
+<body>
+<header th:insert="/index"></header>
+<table border="1" cellpadding="5" cellspacing="1" >
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task : ${taskList}">
+        <td><span th:text="${task.id}" ></span></td>
+        <td><span th:text="${task.description}"></span></td>
+        <td><span th:text="${task.name}"></span></td>
+        <td><a th:href="@{/Edit}">Edit</a></span></td>
+
+        <td><a th:href="@{/Delete(id=${task.id})}">Delete</a></span></td>
+
+<!--        <td><a th:href="|@{/Delete/${task.id}}|">Delete</a></span></td>-->
+<!--        <td><form th:action="@{/Delete}" method="post" th:object="${task}">
+            <input type="hidden" th:field="${task.id}" th:href="@{/Delete/{id}(id=${task.id})}"/>
+            <button >Delete</button> </form></td>-->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
