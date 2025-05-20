@@ -31,4 +31,5 @@ public class Proposal {
     private BigDecimal bidAmount;
     private String status;
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
