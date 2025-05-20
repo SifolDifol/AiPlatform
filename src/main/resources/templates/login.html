@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreelAInce</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="//src/img/logo.png" alt="Логотип" class="logo-img">
+    <a href="index.html" class="logscreenai">FreelAInce</a>
+  </div>
+</header>
+
+<section class="vk-info">
+  <div class="vk-info-content">
+    <div class="vk-info-text">
+      <p>Чтобы продолжить, войдите через вашу учетную запись VK.</p>
+      <p>Просто нажмите на кнопку ниже, чтобы авторизоваться.</p>
+    </div>
+    <div class="vk-info-image">
+      <img src="//src/img/vk.jpg" alt="VK Logo">
+    </div>
+  </div>
+<div id="vkButtonContainer">
+  <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
+  <script type="text/javascript">
+    if ('VKIDSDK' in window) {
+      const VKID = window.VKIDSDK;
+
+      VKID.Config.init({
+        app: 53527310,
+        redirectUrl: 'https://freelaince.ru',
+        responseMode: VKID.ConfigResponseMode.Callback,
+        source: VKID.ConfigSource.LOWCODE,
+        scope: '', // Заполните нужными доступами по необходимости
+      });
+
+      const oneTap = new VKID.OneTap();
+
+      oneTap.render({
+        container: document.currentScript.parentElement,
+        showAlternativeLogin: true
+      })
+      .on(VKID.WidgetEvents.ERROR, vkidOnError)
+      .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) {
+        const code = payload.code;
+        const deviceId = payload.device_id;
+
+        VKID.Auth.exchangeCode(code, deviceId)
+          .then(vkidOnSuccess)
+          .catch(vkidOnError);
+      });
+    
+      function vkidOnSuccess(data) {
+        // Обработка полученного результата
+      }
+    
+      function vkidOnError(error) {
+        // Обработка ошибки
+      }
+    }
+  </script>
+</div>
+</section>
+
+
+</div>
+
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="footer-contacts">
+      <div class="contact-item">
+        <img src="//src/img/email.png" alt="Email">
+        <span>resq1@list.ru</span>
+      </div>
+      <div class="contact-item">
+        <a href="https://t.me/SifolDifol" target="_blank">
+          <img src="//src/img/tg.png" alt="Telegram">
+        </a>
+        <span>@SifolDifol</span>
+      </div>
+      <div class="contact-item">
+        <a href="https://t.me/oe2007" target="_blank">
+          <img src="//src/img/tg.png" alt="Telegram">
+        </a>
+        <span>@oe2007</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 FreelAInce. Все права защищены.
+    </div>
+  </footer>
+
+</body>
+</html>

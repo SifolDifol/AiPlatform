@@ -1,15 +1,128 @@
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Menu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreelAInce</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<ul> Selection menu:
-    <li><a href="/index">Menu</a></li>
-    <li><a href="/AllTask">All Task</a></li>
-    <li><a href="/Create">Create Task</a></li>
-    <li><a href="/Edit">Edit Task</a>
-</ul>
+
+  <!-- Header Section -->
+<header class="header">
+  <div class="logo">
+    <img src="//src/img/logo.png" alt="Логотип" class="logo-img">
+    <span class="logo-text">FreelAInce</span>
+  </div>
+  <div class="NameLinks">
+    <a href="#hero">Особенности</a> |
+    <a href="#features">О продукте</a> |
+    <a href="#contacts">Контакты</a>
+  </div>
+</header>
+
+  <!-- Hero Section -->
+<section id="hero" class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1 class="hero-title">Упростите поиск фрилансеров с FreelAince</h1>
+      <p class="hero-subtitle">Инновационная платформа для поиска фрилансеров</p>
+      <div class="hero-buttons">
+        <a href="login.html" class="button-3">НАЧАТЬ РАБОТУ</a>
+	<a href="#contacts" class="button-4">УЗНАТЬ БОЛЬШЕ</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="//src/img/phone.png" alt="Приложение FreelAince">
+      <div class="image-line"></div> <!-- Серая линия поверх телефона -->
+    </div>
+  </div>
+</section>
+
+<!-- Блок особеннорстей, который отчеркивает телефон -->
+<section id="features" class="features">
+  <div class="feature">
+    <img src="//src/img/icon1.png" alt="Иконка 1">
+    <h1 class="features-title">Первая особенность</h1>
+    <p>Продукт основан на алгоритмах искусственного интеллекта для подбора фрилансеров и анализа данных</p>
+  </div>
+  <div class="feature">
+    <img src="//src/img/icon2.png" alt="Иконка 2">
+    <h1 class="features-title">Вторая особенность</h1>
+    <p>Автоматизация процессов (управление, отчёты, взаимодействия)</p>
+  </div>
+  <div class="feature">
+    <img src="//src/img/icon3.png" alt="Иконка 3">
+    <h1 class="features-title">Третья особенность</h1>
+    <p>Ориентация на бизнес-заказчика, а не массовый рынок</p>
+  </div>
+</section>
+
+<!-- Блок о продукте -->
+<section class="platform-section">
+  <div class="platform-content">
+    <div class="platform-text">
+      <h2>Инновационная платформа для подбора персонала</h2>
+      <p>Продукт решает проблему трудоемкого поиска квалифицированных фрилансеров (специалистов) и оптимизации работы с ними.</p>
+    </div>
+    <div class="platform-image">
+      <img src="//src/img/platform-image.png" alt="Изображение платформы">
+    </div>
+  </div>
+</section>
+
+<div class="horizontal-line"></div>
+
+
+<!-- Блок связи -->
+<section id="contacts" class="contact-section">
+  <h2 class="contact-title">Свяжитесь с нами</h2>
+  <p class="contact-subtitle">Пусть ИИ найдёт идеального исполнителя — расскажите, что нужно</p>
+
+  <form class="contact-form">
+    <div class="input-group">
+      <input type="text" placeholder="Полное имя" name="full-name" required>
+      <input type="email" placeholder="Email" name="email" required>
+    </div>
+    <button type="submit" class="submit-button">Оставить заявку</button>
+  </form>
+  <div class="contact-image">
+      <img src="//src/img/contact.png" alt="Изображение контакта">
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="#hero">Особенности</a> |
+    <a href="#features">О продукте</a> |
+    <a href="#contacts">Контакты</a>
+  </div>
+
+<div class="footer-contacts">
+  <div class="contact-item">
+    <img src="//src/img/email.png" alt="Email">
+    <span>resq1@list.ru</span>
+  </div>
+  <div class="contact-item">
+    <a href="https://t.me/SifolDifol" target="_blank">
+      <img src="src/img/tg.png" alt="Telegram">
+    </a>
+    <span>@SifolDifol</span>
+  </div>
+  <div class="contact-item">
+    <a href="https://t.me/oe2007" target="_blank">
+      <img src="//src/img/tg.png" alt="Telegram">
+    </a>
+    <span>@oe2007</span>
+  </div>
+</div>
+
+
+  <div class="footer-bottom">
+    © 2025 FreelAInce. Все права защищены.
+  </div>
+</footer>
+
+
 </body>
 </html>

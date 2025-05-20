@@ -1,0 +1,54 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Task</title>
+</head>
+<body>
+<header th:insert="/index"></header>
+<table border="1" cellpadding="5" cellspacing="1" >
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="freelancer : ${freelancerList}">
+        <td><span th:text="${freelancer.id}" ></span></td>
+        <td><span th:text="${freelancer.description}"></span></td>
+        <td><span th:text="${freelancer.name}"></span></td>
+        <td><a th:href="@{/Edit}">Edit</a></span></td>
+
+        <td><a th:href="@{/Delete(id=${freelancer.id})}">Delete</a></span></td>
+
+<!--        <td><a th:href="|@{/Delete/${freelancer.id}}|">Delete</a></span></td>-->
+<!--        <td><form th:action="@{/Delete}" method="post" th:object="${freelancer}">
+            <input type="hidden" th:field="${freelancer.id}" th:href="@{/Delete/{id}(id=${freelancer.id})}"/>
+            <button >Delete</button> </form></td>-->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<ul> Selection menu:
+    <li><a href="/index">Menu</a></li>
+    <li><a href="/AllTask">All Task</a></li>
+    <li><a href="/Create">Create Task</a></li>
+    <li><a href="/Edit">Edit Task</a>
+</ul>
+</body>
+</html>

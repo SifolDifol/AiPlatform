@@ -1,0 +1,610 @@
+*:not(input):not(textarea):not([contenteditable]) {
+  caret-color: transparent;
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+}
+
+/* Убираем стиль ссылок */
+a {
+  color: inherit; /* Сохраняем цвет текста родительского элемента */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
+a:hover {
+  text-decoration: none; /* Убираем подчеркивание при наведении */
+  color: inherit; /* Сохраняем цвет текста при наведении */
+}
+
+
+/* Стили для Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.NameLinks {
+  font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.NameLinks a {
+  margin: 0 30px; 
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.NameLinks a:hover {
+  opacity: 0.7;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.logo-img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+  padding: 20px 40px;
+  background-color: #ffffff;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.button-3,
+.button-4 {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 12px 36px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.button-3 {
+  background-color: #939393;
+  color: #fff;
+}
+
+.button-4 {
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #939393;
+}
+
+.button-3:hover, .button-4:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 400px;
+  height: auto;
+  display: block;
+}
+
+/* Линия поверх изображения телефона */
+.image-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #bbb;
+  z-index: 2;
+}
+
+/* Блок с фичами перекрывает нижнюю часть изображения */
+.features {
+  position: relative;
+  background-color: #fff;
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-top: -150px; /* ключевой момент — поднимаем блок наверх */
+  z-index: 3;
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.05); /* мягкая граница между секциями */
+}
+
+.feature img {
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.feature h1 {
+  margin: 10px 0;
+  font-size: 30px;
+}
+
+.feature p {
+  font-size: 20px;
+  color: #555;
+  overflow-wrap: break-word;    /* перенос текста */
+  max-width: 400px;             /* ограничиваем ширину параграфа */
+
+}
+
+.platform-section {
+  background-color: #ffffff;
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.platform-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 60px;
+}
+
+.platform-text {
+  flex: 1;
+}
+
+.platform-text h2 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.platform-text p {
+  font-size: 24px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.platform-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.platform-image img {
+  width: 600px;
+  height: 339px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+
+.horizontal-line {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin-top: 10px;
+  z-index: 1;
+  position: relative;
+}
+
+
+.contact-section {
+  padding: 20px 40px;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.contact-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact-subtitle {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.input-group {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  min-width: 400px;
+  flex-wrap: wrap;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  min-width: 180px;
+}
+
+.submit-button {
+  padding: 14px 36px;
+  font-size: 24px;
+  background-color: #434343;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #777777;
+}
+
+.contact-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-image img {
+  padding: 40px 40px;
+  width: 600px;
+  height: 339px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.footer {
+  width: 100%; 
+  background-color: #e0e0e0;
+  padding: 30px 20px;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #333;
+}
+
+
+.footer-links {
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.footer-links a {
+  margin: 0 30px;
+  cursor: pointer;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 20px auto;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 30px;
+  width: 100%;
+  max-width: 300px;
+}
+
+
+.contact-text {
+  text-align: left;
+  word-break: break-word;
+}
+
+.contact-item img {
+  width: 50px;
+  height: 50px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.contact-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+.contact-item a:hover {
+  opacity: 0.7;
+}
+
+
+.footer-bottom {
+  font-size: 20px;
+  color: #666;
+}
+
+
+
+
+
+.login-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+}
+
+/* Стили для секции vk-info */
+.vk-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 255px); /* Высота секции с учетом отступов */
+  padding: 50px 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.vk-info-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Расстояние между текстом и изображением */
+  margin-bottom: 20px; /* Отступ снизу перед кнопкой */
+}
+
+.vk-info-text {
+  max-width: 500px; /* Ограничиваем ширину текста */
+}
+
+.vk-info-image img {
+  width: 600px; /* Размер изображения */
+  height: auto;
+  border-radius: 40px;
+}
+
+.vk-info p {
+  font-size: 40px;
+  color: #333;
+  margin: 10px 0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Увеличиваем размеры контейнера кнопки */
+#vkButtonContainer {
+  margin-top: 30px;
+  width: 500px;  /* Увеличиваем ширину контейнера */
+  height: 60px;  /* Увеличиваем высоту контейнера */
+  max-width: 100%; /* Для адаптивности */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; /* Закругленные углы */
+  padding: 10px;
+  background-color: #f7f7f7; /* Фоновый цвет контейнера */
+}
+
+.logscreenai {
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .logo-text,
+  .logscreenai {
+    font-size: 28px;
+  }
+
+  .NameLinks {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .hero-content,
+  .platform-content,
+  .contact-form {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-text,
+  .platform-text,
+  .contact-image,
+  .platform-image,
+  .contact-section,
+  .contact-title,
+  .contact-subtitle {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .hero-title,
+  .contact-title,
+  .platform-text h2 {
+    font-size: 28px;
+  }
+
+  .hero-subtitle,
+  .platform-text p,
+  .contact-subtitle {
+    font-size: 18px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .features {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 40px;
+    margin-top: 0;
+  }
+
+  .feature h1 {
+    font-size: 24px;
+  }
+
+  .feature p {
+    font-size: 18px;
+  }
+
+  .platform-image img,
+  .contact-image img {
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  .input-group {
+    min-width: auto;
+    flex-direction: column;
+  }
+
+  .input-group input {
+    width: 100%;
+  }
+
+  .submit-button {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .vk-info {
+    padding: 20px;
+    height: auto;
+  }
+
+  .vk-info-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .vk-info-image img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .vk-info p {
+    font-size: 24px;
+  }
+
+  #vkButtonContainer {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    padding: 15px;
+  }
+
+  .footer {
+    padding: 20px;
+  }
+
+  .footer-contacts {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-item {
+    font-size: 20px;
+  }
+
+  .contact-item img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-bottom {
+    font-size: 16px;
+  }
+}
+

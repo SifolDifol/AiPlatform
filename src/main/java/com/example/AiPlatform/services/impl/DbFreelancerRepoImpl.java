@@ -4,27 +4,27 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.AiPlatform.models.Task;
-import com.example.AiPlatform.services.TaskRepository;
+import com.example.AiPlatform.models.Freelancer;
+import com.example.AiPlatform.services.FreelancerRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class DbTaskRepoImpl implements TaskRepository {
+public class DbFreelancerRepoImpl implements FreelancerRepository {
 
     private Connection getConnection() throws Exception{
         Class.forName("org.postgresql.Driver");
-        String url = "jdbc:postgresql://localhost:5432/BdOne?user=postgres&password=1";
+        String url = "jdbc:postgresql://localhost:8081/AiPlatform?user=postgres&password=1";
         return DriverManager.getConnection(url);
     }
 
     @Override
-    public void createTask(Task task) {
+    public void createTask(Freelancer freelancer) {
         try {
             String sql = "INSERT INTO task (id,name,description) VALUES (?,?,?)";
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setInt (1,task.getId());
-            preparedStatement.setString (2,task.getName());
-            preparedStatement.setString (3,task.getDescription());
+            preparedStatement.setInt (1, freelancer.getId());
+            preparedStatement.setString (2, freelancer.getName());
+            preparedStatement.setString (3, freelancer.getDescription());
             int rows = preparedStatement.executeUpdate();
             System.out.printf("Added %d rows", rows);
         } catch (Exception e) {
@@ -34,7 +34,7 @@ public class DbTaskRepoImpl implements TaskRepository {
     }
 
     @Override
-    public Task getTask(Integer id) {
+    public Freelancer getTask(Integer id) {
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement("SELECT * FROM task WHERE ID = ?");
             preparedStatement.setInt(1, id);
@@ -42,7 +42,7 @@ public class DbTaskRepoImpl implements TaskRepository {
             ResultSet resultSet = preparedStatement.executeQuery();
             // Example: 1 | Задача 1 | Описание 1
             while(resultSet.next()){
-                return new Task(id, resultSet.getString(2), resultSet.getString(3));
+                return new Freelancer(id, resultSet.getString(2), resultSet.getString(3));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,13 +51,13 @@ public class DbTaskRepoImpl implements TaskRepository {
     }
 
     @Override
-    public void updateTask(Task updatedTask) {
+    public void updateTask(Freelancer updatedFreelancer) {
         try{
             String sql = "UPDATE task SET NAME = ? , DESCRIPTION = ? WHERE ID = ?";
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, updatedTask.getName());
-            preparedStatement.setString(2, updatedTask.getDescription());
-            preparedStatement.setInt(3, updatedTask.getId());
+            preparedStatement.setString(1, updatedFreelancer.getName());
+            preparedStatement.setString(2, updatedFreelancer.getDescription());
+            preparedStatement.setInt(3, updatedFreelancer.getId());
             preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,8 +80,8 @@ public class DbTaskRepoImpl implements TaskRepository {
     }
 
     @Override
-    public Map<Integer, Task> getTaskList() {
-        Map<Integer, Task> taskList = new HashMap<>();
+    public Map<Integer, Freelancer> getTaskList() {
+        Map<Integer, Freelancer> taskList = new HashMap<>();
         try {
             Statement statement = getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM task");
@@ -89,8 +89,8 @@ public class DbTaskRepoImpl implements TaskRepository {
                 int id = resultSet.getInt(1);
                 String name = resultSet.getString(2);
                 String description = resultSet.getString(3);
-                Task task = new Task(id, name, description);
-                taskList.put(id, task);
+                Freelancer freelancer = new Freelancer(id, name, description);
+                taskList.put(id, freelancer );
             }
         } catch (Exception e) {
             e.printStackTrace();

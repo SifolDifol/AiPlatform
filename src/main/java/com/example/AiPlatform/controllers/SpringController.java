@@ -1,6 +1,6 @@
 package com.example.AiPlatform.controllers;
 
-import com.example.AiPlatform.models.Task;
+import com.example.AiPlatform.models.Freelancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ import java.util.Map;
 public class SpringController {
 
     @Autowired
-    TaskController taskController;
+    FreelancerController freelancerController;
 
     @GetMapping("/index")
     public String index(Model model){
@@ -23,50 +23,50 @@ public class SpringController {
 
     @GetMapping("/AllTask")
     public String allTask(Model model){
-        Map<Integer, Task> taskMap = taskController.getTaskList();
-        List<Task> taskList = new ArrayList<Task>(taskMap.values());
-        System.out.println(taskList);
-        model.addAttribute("taskList",taskList);
-        return "AllTask";
+        Map<Integer, Freelancer> taskMap = freelancerController.getTaskList();
+        List<Freelancer> freelancerList = new ArrayList<Freelancer>(taskMap.values());
+        System.out.println( freelancerList );
+        model.addAttribute("taskList", freelancerList );
+        return "AllFreelancer";
     }
 
     @GetMapping("/Create")
     public String createTask(Model model){
-        return "CreateTask";
+        return "CreateFreelancer";
     }
 
     @PostMapping("/Create")
     public String createTask(@RequestParam Integer id, @RequestParam String name, @RequestParam String description, Model model){
-        taskController.createTask(id, name, description);
-        return "CreateTask";
+        freelancerController.createTask(id, name, description);
+        return "CreateFreelancer";
     }
 
     @GetMapping("/Edit")
     public String editTask(Model model){
-        return "EditTask";
+        return "EditFreelancer";
     }
 
     @PostMapping("/Edit")
     public String editTask(@RequestParam Integer id, @RequestParam String name, @RequestParam String description ,Model model){
-        taskController.updateTask(id, name,description);
-        return "AllTask";
+        freelancerController.updateTask(id, name,description);
+        return "AllFreelancer";
     }
 
     @RequestMapping(value = "/Delete", method = RequestMethod.GET)
     public String deletTask(@RequestParam(name="id") Integer id){
-        taskController.deleteTask(id);
+        freelancerController.deleteTask(id);
         return "redirect:AllTask";
     }
 
     @GetMapping("/Parse")
     public String parsData(Model model){
-        return "EditTask";
+        return "EditFreelancer";
     }
 
     @PostMapping("/Parse")
     public String parseData(@RequestParam Integer id, @RequestParam String name, @RequestParam String description ,Model model){
-        taskController.updateTask(id, name,description);
-        return "AllTask";
+        freelancerController.updateTask(id, name,description);
+        return "AllFreelancer";
     }
 
 }
