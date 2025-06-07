@@ -1,64 +1,66 @@
 package com.example.AiPlatform.controllers;
 
 import com.example.AiPlatform.models.Freelancer;
-import com.example.AiPlatform.services.FreelancerRepository;
+import com.example.AiPlatform.models.User;
+import com.example.AiPlatform.services.repository.FreelancerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 
-    @Service
+@Service
 public class FreelancerController {
 
 
     private FreelancerRepository freelancerRepository;
 
-    private Map<Integer, Freelancer> taskList;
+    private Map<Long, Freelancer> freelancerList;
 
     @Autowired
     public FreelancerController(FreelancerRepository freelancerRepository) {
         this.freelancerRepository = freelancerRepository;
-        this.taskList = new HashMap();
+        this.freelancerList = new HashMap();
     }
 
-    public void createTask(int id, String name, String description) {
+    public void createFreelancer(Long id, String name, String description, User user, String fullName, String bio, BigDecimal rating, String portfolioUrl, BigDecimal hourlyRate, String location, String phone, String website) {
         if(name == null) throw new RuntimeException("Name cannot be null");
 
-        Freelancer freelancer = new Freelancer(id, name, description);
-        freelancerRepository.createTask( freelancer );
-        taskList.put(id, freelancer );
+        Freelancer freelancer = new Freelancer( id,  name,  description, user, fullName, bio, rating, portfolioUrl, hourlyRate, location, phone, website);
+        freelancerRepository.createFreelancer( freelancer );
+        freelancerList.put(id, freelancer );
     }
 
-    public Map<Integer, Freelancer> getTaskList() {
-        taskList = freelancerRepository.getTaskList();
-        return taskList;
+    public Map<Long, Freelancer> getFreelancerList() {
+        freelancerList = freelancerRepository.getFreelancerList();
+        return freelancerList;
     }
 
-    public Freelancer getTask(Integer id) {
-        if(taskList.containsKey(id)) return taskList.get(id);
+    public Freelancer getFreelancer(Long id) {
+        if( freelancerList.containsKey(id)) return freelancerList.get(id);
 
-        return freelancerRepository.getTask(id);
+        return freelancerRepository.getFreelancer(id);
     }
 
     public void updateTask(Integer taskId, String newName, String newDescription) {
-        Freelancer updatedFreelancer = new Freelancer(taskId, newName, newDescription);
+        //Freelancer updatedFreelancer = new Freelancer(taskId, newName, newDescription);
 
-        taskList.put(taskId, updatedFreelancer );
+        //freelancerList.put(taskId, updatedFreelancer );
 
-        freelancerRepository.updateTask( updatedFreelancer );
+        //freelancerRepository.updateTask( updatedFreelancer );
     }
 
-    public void deleteTask(Integer id) {
-        taskList.remove(id);
-        freelancerRepository.deleteTask(id);
+    public void deleteFreelancer(Long id) {
+        freelancerList.remove(id);
+        freelancerRepository.deleteFreelancer(id);
     }
 
     @Deprecated
     public void saveTaskListToDB(){
-        for(Integer key: taskList.keySet()){
-            freelancerRepository.createTask(taskList.get(key));
+        for(Long key: freelancerList.keySet()){
+            //freelancerRepository.createTask( freelancerList.get(key));
         }
     }
 }

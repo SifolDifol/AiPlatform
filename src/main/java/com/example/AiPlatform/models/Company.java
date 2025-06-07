@@ -1,11 +1,11 @@
 package com.example.AiPlatform.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "companies")
 @Data
@@ -26,4 +26,14 @@ public class Company{
     private String website;
     private String location;
     private String phone;
+
+    public Company(long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
+    protected boolean canEqual(final Object other) {
+        return other instanceof Company;
+    }
 }

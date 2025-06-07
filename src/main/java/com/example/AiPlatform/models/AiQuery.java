@@ -1,17 +1,17 @@
 package com.example.AiPlatform.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "ai_queries")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+
 public class AiQuery {
 
     @Id
@@ -25,4 +25,14 @@ public class AiQuery {
     private String queryText;
     private String responseText;
     private LocalDateTime createdAt;
+
+    @Column(name = "filePath", nullable = true)
+    private String filePath;
+
+    @Enumerated
+    private QueryStatus status = QueryStatus.PENDING;
+
+    public enum QueryStatus{
+        PENDING, PROCESSING, COMPLETED, FAILED
+    }
 }
