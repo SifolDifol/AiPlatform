@@ -15,7 +15,9 @@ public class AiQueryController {
     private static final String API_URL = "https://api.deepseek.com/v1/chat/completions";
     private static final String API_KEY = "your_api_key_here"; // Замените на ваш ключ
 
+
     private RestTemplate restTemplate;
+
 
     public AiQueryController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;

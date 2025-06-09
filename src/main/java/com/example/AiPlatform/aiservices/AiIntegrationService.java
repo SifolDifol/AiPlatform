@@ -1,15 +1,27 @@
 package com.example.AiPlatform.aiservices;
 
-import com.example.AiPlatform.aiservices.controllers.AiQueryController;
-import com.example.AiPlatform.aiservices.controllers.AiRequest;
-import com.example.AiPlatform.aiservices.controllers.AiResponse;
-import com.example.AiPlatform.aiservices.controllers.spring.SpringAiQueryController;
-import com.example.AiPlatform.models.AiQuery;
-import lombok.Value;
-import org.springframework.http.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-
+@Configuration
 public class AiIntegrationService {
+
+    @Bean
+    public RestTemplate restTemplate(){
+        return new RestTemplate();}
+}
+
+/*
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
+@Configuration
+public class AppConfig {
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
+}
+*/
